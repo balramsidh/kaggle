@@ -1,0 +1,83 @@
+
+packages = c("tidyverse", "rebus")
+
+package.check <- lapply(packages, FUN= function(pkg)  {
+  if(!require(pkg, character.only = T)) {
+    install.packages(pkg, dependencies = T)
+    library(pkg, character.only = T)
+  }
+})
+
+
+rm(list= ls())
+
+loans <- read_csv("Data/kiva_loans.csv")
+
+mi_region <- read_csv("Data/kiva_mpi_region_locations.csv")
+
+theme_id <- read_csv("Data/loan_theme_ids.csv")
+
+theme_by_region <- read_csv("Data/loan_themes_by_region.csv")
+
+loans %>%
+  group_by (sector) %>%
+  summarise(funded_amount= sum(funded_amount), loan_amount = sum(loan_amount), count = n()) %>%
+  ggplot(aes(x= reorder(sector,loan_amount), y = loan_amount))  +
+  geom_col() +
+  coord_flip() +
+  theme_bw()
+
+
+loans %>% 
+  ggplot(aes(sector,funded_amount)) +
+  geom_boxplot(aes(color=sector)) +
+  coord_flip() +
+   scale_y_continuous(limits= c(0,5500))
+
+
+str(loans)
+
+loans$funded_time - loans$posted_time
+
+?trimws
+
+table(loans$borrower_genders)
+
+str(loans)
+
+
+loans %>% 
+  ggplot( aes(x=partner_id)) +
+  geom_bar()
+
+
+
+colSums(is.na(loans))
+
+
+str(mi_region)
+colSums(is.na(mi_region))
+
+
+
+
+loans %>%
+  select(borrower_genders) %>%
+  str_view('female') %>%
+  head()
+
+head(pattern_f)
+
+  unique(mi_region$region)
+
+
+?unique
+
+  
+  iris$Flower <- 1:nrow(iris)
+  
+  iris %>%
+    gather(key, value,-Flower, -Species) %>%
+    separate(key, c("Part", "Measure"), "\\.") %>%
+    spread(Measure, value)   
+  

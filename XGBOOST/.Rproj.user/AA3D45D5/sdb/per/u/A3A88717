@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# Install all needed packages in one operation, and then be smart.\n###\n\npackages = c(\"xgboost\",\"tidyverse\",\"DiagrammeR\")\n\npackage.check <- lapply(packages, FUN = function(pkg) {\n  if (!require(pkg, character.only = TRUE)) {\n    install.packages(pkg, dependencies = TRUE)\n    library(pkg, character.only = TRUE)\n  }\n})\n\n",
+    "created" : 1517527400940.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3152235624",
+    "id" : "A3A88717",
+    "lastKnownWriteTime" : 4445258128,
+    "last_content_update" : 1517527409007,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

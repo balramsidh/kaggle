@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1521175258344.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C6F0366B",
+    "lastKnownWriteTime" : 2314885530279477254,
+    "last_content_update" : 1521175258344,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "1F685088",
+        "caption" : "loans",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=loans&cache_key=1F685088",
+        "displayedObservations" : 671205,
+        "environment" : "",
+        "object" : "loans",
+        "preview" : 0,
+        "totalObservations" : 671205,
+        "variables" : 20
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

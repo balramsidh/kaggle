@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1522306511966.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "685373071",
+    "id" : "91A97CDA",
+    "lastKnownWriteTime" : 1514435383,
+    "last_content_update" : 1514435383,
+    "path" : "~/Desktop/Learnings/Kaggle/Titanic problem/Titanic problem part 2.R",
+    "project_path" : "Titanic problem part 2.R",
+    "properties" : {
+        "cursorPosition" : "34,19",
+        "scrollLine" : "11"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

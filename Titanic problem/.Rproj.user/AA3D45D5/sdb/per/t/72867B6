@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# Balram Sidh 01/12\n# Team assignment 1 for Msis 521 \n# Hongkong tourists \n\n# setting up work directory\nsetwd(\"~/Desktop/R/521 Team Project\")\n\n# Loading the csv file \nrm(df.tourists)\ndf.tourists <- read.csv(\"HongKongTourists.csv\")\n\n\n# Data manipulation \n\nrm(df.combined)\n\ndf.tourists$Month <- paste(substr(df.tourists$Month,1,1),tolower(substr(df.tourists$Month,2,3)), sep = \"\")  # to convert JAN to Jan\n\nlen <- length(df.tourists$Visitors)\n\ndf.combined <- cbind.data.frame(Year= df.tourists$Year[13:len], Month=df.tourists$Month[13:len],V=df.tourists$Visitors[13:len], lastmonthV=df.tourists$Visitors[12:(len -1)], lastyearV=df.tourists$Visitors[1:(len-12)] )\n\n# converting to date format \ndf.combined$Date <- as.Date(as.yearmon(paste(df.tourists$Month[13:len], df.tourists$Year[13:len], sep=\" \")))\n\nstr(df.combined)\n# This is to ensure the sequence is not by alphabet but by months of the year\ndf.combined$Month <- factor(df.combined$Month, levels = c(\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\"))  \n\nstr(df.combined)\n\n# Adding the google trend data to our data file \n\nx=list.files(pattern=\"(multi).*\\\\.csv\") # list of all the csv files in current dir with \"multi\" in name\n\nx\n\n# for loop is basically to 1. read all files in variable x 2. get names of second column 3. add that column to main file \nfor (i in 1: length(x)) {\n  assign(x[i], read.csv(x[i], skip=1, header = T))\n  temp_name <- paste(\"Trend\",gsub(\"\\\\.\\\\..*\", \"\\\\1\", colnames(get(x[i]))[2] ), sep=\".\")\n  df.combined[temp_name] <- get(x[i])[2]\n}\n\n\n\n# Writing a final csv file \nwrite.csv(df.combined, file = \"finalinput.csv\")\n\n# splitting the data into test and train \n\ndf.test <- df.combined[(df.combined$Year == \"2017\"),]\n\ndf.train <- df.combined[(df.combined$Year != \"2017\"),]\n\n\n# Regression model \n\n#output file with name of model and square error\ndf.output <- data.frame(model_name=character(),square_error=double(), stringsAsFactors = FALSE)\n\n\ndf.output$model_name[1] <- c(\"V ~ lastmonthV\")\n\nmodel1 <- lm(V ~ lastmonthV, data=df.train)\n\nsummary(model1)\ndf.output$square_error[1] <- sum((df.test$V - predict(model1,df.test))^2)\n\n\n\ndf.output[2,1] <- c(\"V ~ lastyearV + lastmonthV\")\nmodel2 <- lm(V ~ lastyearV + lastmonthV, data=df.train )\n\ndf.output$square_error[2] <- sum((df.test$V - predict(model2,df.test))^2)\n\n# Need to add linear regression with trend data \n\n\n# Writing a final output csv file \nwrite.csv(df.output, file = \"finaloutput.csv\")\n\n# Visualization [still working on it]\n\nlibrary('ggplot2')\n\n\nggplot(df.combined,aes(x=Month, y=V)) + \n  theme_bw() + \n  geom_bar(stat=\"identity\", aes(fill=Year)) +\n  labs(y = \"Volume\", title=\"Volume of Tourists by Month\")\n\nggplot(df.combined,aes(x=Year, y=V)) + \n  theme_bw() + \n  geom_bar(stat=\"identity\", aes(fill=Month)) +\n  labs(y = \"Volume\", title=\"Volume of Tourists by Month\")\n\nggplot(df.combined, aes(x=V,y=Trend.places.to.visit)) +\n  theme_bw() +\n  geom_point() +\n  geom_smooth(method=\"lm\")\n\nlibrary(scales)\n\nggplot(df.combined, aes(x=Date)) + \n  theme_bw() +\n  geom_line(aes(y=V, colour=\"V\", group=1)) + \n  geom_line(aes(y=lastyearV, colour=\"lastyearV\", group=1)) +\n  labs(x=\"Date\", y=\"Volume\", title=\"Year on Year comparision\") + \n  theme(aspect.ratio = 1/2, legend.position = \"top\") +\n  scale_x_date(labels = date_format(\"%y\"), breaks = date_breaks(\"years\"))\n  \n\n\nggplot(aggregate(V ~ Month , data=df.combined, FUN=median),aes(Month,V, color=(Month))) + \n  geom_point() \naggregate(V ~  Month, data=df.combined, FUN=mean)\n\n",
+    "created" : 1516226220005.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "376738910",
+    "id" : "72867B6",
+    "lastKnownWriteTime" : 1517219765,
+    "last_content_update" : 1517219766573,
+    "path" : "~/Desktop/R/521 Team Project/Code(1).R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

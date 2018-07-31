@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1520840235972.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B6BA04B3",
+    "lastKnownWriteTime" : -2278433960838560177,
+    "last_content_update" : 1520840235972,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "550C8E09",
+        "caption" : "kiva_loans",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=kiva_loans&cache_key=550C8E09",
+        "displayedObservations" : "671205",
+        "environment" : "",
+        "object" : "kiva_loans",
+        "preview" : "0",
+        "totalObservations" : "671205",
+        "variables" : "20"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

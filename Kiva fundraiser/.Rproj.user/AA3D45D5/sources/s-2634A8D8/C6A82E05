@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1520841278258.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C6A82E05",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : 1520841278258,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "C799DE3D",
+        "caption" : "mi_region",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=mi_region&cache_key=C799DE3D",
+        "displayedObservations" : "2772",
+        "environment" : "",
+        "object" : "mi_region",
+        "preview" : "0",
+        "totalObservations" : "2772",
+        "variables" : "9"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

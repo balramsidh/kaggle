@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# Xgboost homework/practice \n# link : https://www.kaggle.com/rtatman/machine-learning-with-xgboost-in-r-workbook/notebook\n\n# Install all needed packages in one operation, and then be smart.\n###\n\npackages = c(\"xgboost\",\"tidyverse\",\"DiagrammeR\")\n\npackage.check <- lapply(packages, FUN = function(pkg) {\n  if (!require(pkg, character.only = TRUE)) {\n    install.packages(pkg, dependencies = TRUE)\n    library(pkg, character.only = TRUE)\n  }\n})\n\n# reading the data \n\ndf.horses <- read.csv( file = \"horse.csv\")\n\n\n# reshuffling \n\nset.seed(1234)\ndf.horses <- df.horses[sample(1:nrow(df.horses)),]\n\n\n# step: Remove information about the target variable from the training data\n\ndf.horses_input <- df.horses %>%\n  select(-c(outcome,hospital_number,cp_data)\n  \n",
+    "created" : 1517527564232.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3729455263",
+    "id" : "C55B8639",
+    "lastKnownWriteTime" : 1517536752,
+    "last_content_update" : 1517536752159,
+    "path" : "~/Desktop/Kaggle/XGBOOST/Horses/horses.R",
+    "project_path" : "horses.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

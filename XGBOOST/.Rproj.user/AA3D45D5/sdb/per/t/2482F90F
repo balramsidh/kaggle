@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1517282817165.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2482F90F",
+    "lastKnownWriteTime" : 2324498775189487622,
+    "last_content_update" : 1517282817165,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "EB40F804",
+        "caption" : "importance_matrix",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=importance_matrix&cache_key=EB40F804",
+        "displayedObservations" : 4,
+        "environment" : "",
+        "object" : "importance_matrix",
+        "preview" : 0,
+        "totalObservations" : 4,
+        "variables" : 5
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# We'll start by creating some nonsense data with dates\ndf <- data.frame(\n  date = seq(Sys.Date(), len=100, by=\"1 day\")[sample(100, 50)],\n  price = runif(50)\n)\n\nstr(df)\ndf <- df[order(df$date), ]\ndt <- qplot(date, price, data=df, geom=\"line\")  + theme(aspect.ratio = 1/4)\n\nlibrary(\"gridExtra\")\n\npar(mfrow=c(2,2))\n\ndt\n\n# We can control the format of the labels, and the frequency of\n# the major and minor tickmarks.  See ?format.Date and ?seq.Date\n# for more details.\nlibrary(scales) # to access breaks/formatting functions\ndt1 <- dt + scale_x_date()\n\ngrid.arrange(dt,dt1,ncol=1)\n\ndt2 <- dt + scale_x_date(labels = date_format(\"%m/%d\"))\ndt3 <- dt + scale_x_date(labels = date_format(\"%W\"))\ndt4 <- dt + scale_x_date(labels = date_format(\"%W\"), breaks = date_breaks(\"week\"))\n\ngrid.arrange(dt1,dt2,dt3,dt4,ncol=1)\n\ndt + scale_x_date(breaks = date_breaks(\"months\"),\n                  labels = date_format(\"%b\"))\ndt + scale_x_date(breaks = date_breaks(\"4 weeks\"),\n                  labels = date_format(\"%d-%b\"))\n\n# We can use character string for breaks.\n# See \\\\code{\\\\link{by}} argument in \\\\code{\\\\link{seq.Date}}.\ndt + scale_x_date(breaks = \"2 weeks\")\ndt + scale_x_date(breaks = \"1 month\", minor_breaks = \"1 week\")\n\n# The date scale will attempt to pick sensible defaults for\n# major and minor tick marks\nqplot(date, price, data=df[1:10,], geom=\"line\")\nqplot(date, price, data=df[1:4,], geom=\"line\")\n\ndf <- data.frame(\n  date = seq(Sys.Date(), len=1000, by=\"1 day\"),\n  price = runif(500)\n)\n\n\nqplot(date, price, data=df, geom=\"line\")\n\n# A real example using economic time series data\nqplot(date, psavert, data=economics)\nqplot(date, psavert, data=economics, geom=\"path\")\n\nend <- max(economics$date)\nlast_plot() + scale_x_date(limits = c(as.Date(\"2000-1-1\"), end))\nlast_plot() + scale_x_date(limits = c(as.Date(\"2005-1-1\"), end))\nlast_plot() + scale_x_date(limits = c(as.Date(\"2006-1-1\"), end))\n\n# If we want to display multiple series, one for each variable\n# it's easiest to first change the data from a \"wide\" to a \"long\"\n# format:\nlibrary(reshape2) # for melt\nem <- melt(economics, id = \"date\")\n\n?melt\n\n# Then we can group and facet by the new \"variable\" variable\nqplot(date, value, data = em, geom = \"line\", group = variable)\nqplot(date, value, data = em, geom = \"line\", group = variable) +\n  facet_grid(variable ~ ., scale = \"free_y\")\n\n\n\n####\n\nx <- data.frame(table(df$price))\n\ndf[df$price %in% x$Var1[x$Freq>1],]\n\n\n\npackages = c(\"class\",\"forecast\",\"ggplot2\",\"metrics\")\n\npackage.check <- lapply(packages, FUN = function(pkg) {\n  if (!require(pkg, character.only = TRUE)) {\n    install.packages(pkg, dependencies = TRUE)\n    library(pkg, character.only = TRUE)\n  }\n})\n",
+    "created" : 1516266542074.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3568616410",
+    "id" : "863A8F47",
+    "lastKnownWriteTime" : 2467239687352841216,
+    "last_content_update" : 1517089986010,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

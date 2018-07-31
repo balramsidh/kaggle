@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1517527688314.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A596399D",
+    "lastKnownWriteTime" : 4294967302,
+    "last_content_update" : 1517527688314,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "58A3E0EF",
+        "caption" : "df.horses",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=df.horses&cache_key=58A3E0EF",
+        "displayedObservations" : 299,
+        "environment" : "",
+        "object" : "df.horses",
+        "preview" : 0,
+        "totalObservations" : 299,
+        "variables" : 28
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

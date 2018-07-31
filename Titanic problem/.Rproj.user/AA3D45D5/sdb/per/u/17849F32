@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "## XGBOOST ##\n## https://www.kaggle.com/rtatman/machine-learning-with-xgboost-in-r/\n\n## \n\n\nsetwd(\"~/Desktop/Kaggle/XGBoost\")\n\n",
+    "created" : 1516944807054.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "583975934",
+    "id" : "17849F32",
+    "lastKnownWriteTime" : 4294967302,
+    "last_content_update" : 1517219631056,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
