@@ -4,7 +4,7 @@ To maintain projects for which data source is Kaggle.com.
 
 Tools/Languages so far: R, MySQL and Tableau 
 
-**Public Profiles**
+**Public Profiles:**
 
 [Kaggle profile](https://www.kaggle.com/balrams/kernels)
 
